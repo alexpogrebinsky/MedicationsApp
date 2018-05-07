@@ -1,0 +1,52 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27428.2015
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Medicine", "Medicine\Medicine.csproj", "{1ECFA6EC-B4E0-430B-A479-BB0DB0CD25F3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Business", "Business\Business.csproj", "{7D477ED2-0794-420B-8E30-1AFD6A72C4E4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data", "Data\Data.csproj", "{8AA224E7-65D6-47F1-99AB-4ACB568EE8BD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1ECFA6EC-B4E0-430B-A479-BB0DB0CD25F3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1ECFA6EC-B4E0-430B-A479-BB0DB0CD25F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1ECFA6EC-B4E0-430B-A479-BB0DB0CD25F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1ECFA6EC-B4E0-430B-A479-BB0DB0CD25F3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7D477ED2-0794-420B-8E30-1AFD6A72C4E4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7D477ED2-0794-420B-8E30-1AFD6A72C4E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7D477ED2-0794-420B-8E30-1AFD6A72C4E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7D477ED2-0794-420B-8E30-1AFD6A72C4E4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8AA224E7-65D6-47F1-99AB-4ACB568EE8BD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8AA224E7-65D6-47F1-99AB-4ACB568EE8BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8AA224E7-65D6-47F1-99AB-4ACB568EE8BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8AA224E7-65D6-47F1-99AB-4ACB568EE8BD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {30253270-7889-4E3A-9FB2-100622114118}
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 4
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://medications.visualstudio.com/
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = Medicine\\Medicine.csproj
+		SccProjectName1 = Medicine
+		SccLocalPath1 = Medicine
+		SccProjectUniqueName2 = Business\\Business.csproj
+		SccProjectName2 = Business
+		SccLocalPath2 = Business
+		SccProjectUniqueName3 = Data\\Data.csproj
+		SccProjectName3 = Data
+		SccLocalPath3 = Data
+	EndGlobalSection
+EndGlobal
