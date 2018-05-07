@@ -1,0 +1,93 @@
+﻿<script type="text/javascript" src="~/Scripts/jquery-1.10.2.min.js"></script>
+
+@{
+    ViewBag.Title = "MedInventory";
+}
+
+<center>
+    <h1>Medication &nbsp;Inventory</h1>
+    
+
+    @{
+        var grid = new WebGrid(Model);
+    }
+
+    <div id="gridContent" style=" padding:20px; ">
+        @grid.GetHtml(tableStyle: "webgrid-table",
+                                                         headerStyle: "webgrid-header",
+                                                         footerStyle: "webgrid-footer",
+                                                         alternatingRowStyle: "webgrid-alternating-row",
+                                                         selectedRowStyle: "webgrid-selected-row",
+                                                         rowStyle: "webgrid-row-style",
+                                                         mode: WebGridPagerModes.All,
+                                                         columns:
+                                                         grid.Columns(
+                                                                      grid.Column(format: @<text><input type="hidden" id="ID" value="@item.ID" class="" /></text>, style: "col1Width"),
+                                                                                       grid.Column("Medication", format: @<text><input id="Description" size="400" readonly="readonly" style="font-weight:normal" value="@item.Description" /></text>, style: "col1Width", canSort: false),
+                                                                                                      grid.Column("Total Available", format: @<text><input id="QutyAvail" size="20" readonly="readonly" style="font-weight: normal" value="@ViewBag.QtyAvail[item.ID]" /></text>, style: "col2Width", canSort: false),
+                                                                                                                         grid.Column("Quantity (Add or Remove)", format: @<text><input type="text" id="Quantity" value="" /></text>, style: "col2Width", canSort: false),
+                                                                                                                                             grid.Column(format: @<text> <button class="add">Add</button><button class="remove">Remove</button></text>, style: "col3Width", canSort: false)))
+
+
+
+
+
+
+    </div>
+</center>
+
+
+<script type="text/javascript">
+
+    $(function () {
+
+         $('.add, .remove').on('click', function () {
+            var tr = $(this).parents('tr:first');
+            var ID = tr.find("#ID").val();
+            var Quant = tr.find("#Quantity");
+             var QA = tr.find("#QutyAvail"); 
+
+            var Quantity = tr.find("#Quantity").val();
+
+            if ($(this).hasClass('remove'))
+                Quantity = -Quantity;
+
+            var Avail = QA.val();
+             Avail = (Number(Avail) + Number(Quantity)); 
+            if (Avail < 0)
+            {
+                alert("Not enough stock is available for \nnumber requested. \n\nRemove fewer items.");
+                Quant.val("");
+                return;
+             }
+
+             if ($(this).hasClass('add'))
+                 alert("Items(s) have been added");
+
+             if ($(this).hasClass('remove'))
+                 alert("Items(s) have been removed");
+
+             Quant.val("");
+
+            QA.val(Avail);
+
+
+            var Params =
+                {
+                    "Quantity": Quantity,
+                    "ID": ID
+                }
+
+            $.ajax({
+                url: '/Home/AddTrans/',
+                data: JSON.stringify(Params),
+                type: 'POST',
+                contentType: 'application/json; charset=utf-8'
+
+            });
+
+        });
+    })
+</script>
+
+

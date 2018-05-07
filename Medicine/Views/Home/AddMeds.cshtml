@@ -1,0 +1,53 @@
+﻿@model Data.Models.Medication
+
+@{
+    ViewBag.Title = "AddMeds";
+}
+
+<h2>Add Medication List</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <h4>Medication</h4>
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+    @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "" })<br />
+    @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "" } })
+    @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+
+    <br /><br />
+
+    @Html.LabelFor(model => model.AlertThreshold, htmlAttributes: new { @class = "control-label" }) <br /> @Html.EditorFor(model => model.AlertThreshold, new { htmlAttributes = new { @class = "form-control" } })
+    @Html.ValidationMessageFor(model => model.AlertThreshold, "", new { @class = "text-danger" })
+
+    <br /><br />
+
+    @Html.LabelFor(model => model.Vendor, htmlAttributes: new { @class = "control-label" }) <br /> @Html.EditorFor(model => model.Vendor, new { htmlAttributes = new { @class = "form-control" } })
+    @Html.ValidationMessageFor(model => model.Vendor, "", new { @class = "text-danger" })
+
+    <br /><br />
+
+    @Html.LabelFor(model => model.Notes, htmlAttributes: new { @class = "control-label" }) <br />
+    @Html.TextBox("Notes", null, new { @class = "form-control" })
+    <br /><br />
+
+
+    <input type="submit" value="Create" class="btn btn-default" />
+
+
+}
+
+
+<br /><br />
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

@@ -1,0 +1,135 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <link href="https://fonts.googleapis.com/css?family=Gentium+Book+Basic" rel="stylesheet">
+
+
+    <style>
+        body {
+            font-family: "Lato", sans-serif;
+            top: 0;
+            background-color: #f7ece3;
+            /*background-image: url(/Images/texture.jpg);*/
+            font-size: 17px;
+        }
+
+
+        a {
+            color: black;
+            font-weight: bold;
+            letter-spacing: 1.5px;
+        }
+
+
+
+        a:hover {
+            color:red;
+        }
+
+        .sidenav {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            background-color: #870a0a;
+            overflow-x: hidden;
+            transition: 0.7s;
+            padding-top: 60px;
+            box-shadow: 5px 5px 5px grey;
+            font-family: 'Gentium Book Basic', serif;
+            font-size: 17px;
+            font-weight: bold;
+        }
+
+            .sidenav a {
+                padding: 5px 5px 5px 52px;
+                text-decoration: none;
+                font-size:  15px;
+                color: white;
+                display: block;
+                transition: 0.7s;
+                /*box-shadow: .5px .5px white;*/
+            }
+
+                .sidenav a:hover {
+                    color: #f49735;
+                    text-shadow: 2px 2px black;
+                }
+
+            .sidenav .closebtn {
+                position: absolute;
+                top: 0;
+                right: 20px;
+                font-size: 36px;
+                margin-left: 50px;
+            }
+
+        .topping {
+            position: fixed;
+            top: 0;
+            color: #870a0a;
+        }
+    </style>
+</head>
+<body>
+    <div class="topping">
+        <span style="font-size:50px;cursor:pointer" onclick="openNav()">&#9776;</span>
+    </div>
+
+
+
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - Friendship Animal Protective Leauge of Lorain County.</p>
+        </footer>
+    </div>
+
+
+
+    <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <center>
+            <img src="~/Images/lgo33.png" />
+            <br />  <br />
+            <img src="~/Images/text2.png" />
+            <br />
+        </center><hr /><br />
+        @Html.ActionLink("Medications", "Index", "Home")
+        @Html.ActionLink("Medication Inventory", "MedInventory", "Home")
+        @Html.ActionLink("Print List", "Print", "Home")  
+        @Html.ActionLink("About", "About", "Home")
+        @Html.ActionLink("Contact", "Contact", "Home")
+        <hr />
+        @Html.Partial("_LoginPartial")
+
+
+
+    </div>
+
+    <script>
+        function openNav() {
+            document.getElementById("mySidenav").style.width = "250px";
+        }
+
+        function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+        }
+    </script>
+
+
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+
+</body>
+</html>

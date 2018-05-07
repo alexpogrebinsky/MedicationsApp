@@ -1,0 +1,52 @@
+﻿@*@model IEnumerable<Data.Models.Medication>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<center>
+    <b>
+        <h3>Animal Protection Leauge</h3>
+        <h5>Medications List</h5>
+    </b>
+
+</center>
+
+<p>
+    @Html.ActionLink("Create New", "AddMeds")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+        <th>
+            @*@Html.DisplayNameFor(model => model.AppUser.Email)*@
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AlertThreshold)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @*@Html.DisplayFor(modelItem => item.AppUser.Email)*@
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AlertThreshold)
+            </td>
+            <td>
+                <center> @Html.ActionLink("Edit", "EditMeds", new { id = item.ID }) </center>
+                @*@Html.ActionLink("Details", "Details", new { id=item.ID }) |
+                    @Html.ActionLink("Delete", "Delete", new { id=item.ID })*@
+            </td>
+        </tr>
+    }
+
+</table>*@
